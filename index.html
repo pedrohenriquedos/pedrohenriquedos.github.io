@@ -5,69 +5,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Portfólio - Pedro Henrique</title>
+    <title>Interface do Jogo - Pedro Henrique</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <h1>Pedro Henrique</h1>
-            <nav>
-                <ul>
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#contato">Contato</a></li>
+    <main class="game-interface">
+        <header class="game-hud">
+            <div class="hud-block">
+                <p class="hud-label">Noite atual</p>
+                <p id="night" class="hud-value">Noite 1</p>
+            </div>
+            <div class="hud-block">
+                <p class="hud-label">Relógio</p>
+                <p id="time" class="hud-value">12:00 AM</p>
+                <span class="hud-range">12AM–6AM</span>
+            </div>
+            <div class="hud-block">
+                <p class="hud-label">Bateria restante</p>
+                <p id="battery" class="hud-value">100%</p>
+            </div>
+        </header>
+
+        <section class="control-room">
+            <div class="doors-panel">
+                <h2>Portas</h2>
+                <div class="door-controls">
+                    <div class="door-control door-left" aria-live="polite">
+                        <h3>Porta Esquerda</h3>
+                        <button id="toggle-left-door" class="door-button">Fechar porta esquerda</button>
+                        <span class="door-indicator" data-state="open">Aberta</span>
+                    </div>
+                    <div class="door-control door-right" aria-live="polite">
+                        <h3>Porta Direita</h3>
+                        <button id="toggle-right-door" class="door-button">Fechar porta direita</button>
+                        <span class="door-indicator" data-state="open">Aberta</span>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="robots-panel">
+                <h2>Status dos Robôs</h2>
+                <ul class="robots-list">
+                    <li class="robot-status" data-robot="alpha">
+                        <h3>Alpha</h3>
+                        <p>Posição: <span class="robot-position">Palco principal</span></p>
+                        <p>Ameaça: <span class="robot-threat">Baixa</span></p>
+                    </li>
+                    <li class="robot-status" data-robot="beta">
+                        <h3>Beta</h3>
+                        <p>Posição: <span class="robot-position">Corredor oeste</span></p>
+                        <p>Ameaça: <span class="robot-threat">Média</span></p>
+                    </li>
+                    <li class="robot-status" data-robot="gamma">
+                        <h3>Gamma</h3>
+                        <p>Posição: <span class="robot-position">Sala de suprimentos</span></p>
+                        <p>Ameaça: <span class="robot-threat">Baixa</span></p>
+                    </li>
+                    <li class="robot-status" data-robot="delta">
+                        <h3>Delta</h3>
+                        <p>Posição: <span class="robot-position">Corredor leste</span></p>
+                        <p>Ameaça: <span class="robot-threat">Alta</span></p>
+                    </li>
                 </ul>
-            </nav>
-        </div>
-    </header>
+            </aside>
+        </section>
 
-    <section class="intro">
-        <div class="container">
-            <h2>Olá, sou Pedro Henrique</h2>
-            <p>Sou desenvolvedor web com experiência em HTML, CSS, PHP e mais. Crio sites incríveis, adaptados para todas as plataformas, com foco em performance, design e usabilidade. Se você quer transformar sua ideia em um projeto online, está no lugar certo!</p>
-        </div>
-    </section>
+        <section class="game-messages">
+            <div id="instructions" class="message-box">
+                <h2>Instruções Iniciais</h2>
+                <p>Monitore os robôs, mantenha as portas fechadas apenas quando necessário e conserve a bateria até as 6AM.</p>
+            </div>
+            <div id="victory-message" class="message-box" hidden>
+                <h2>Vitória!</h2>
+                <p>Você sobreviveu até o amanhecer.</p>
+            </div>
+            <div id="defeat-message" class="message-box" hidden>
+                <h2>Derrota!</h2>
+                <p>Os robôs invadiram a sala. Tente novamente.</p>
+            </div>
+        </section>
+    </main>
 
-    <section id="servicos" class="servicos">
-        <div class="container">
-            <h2>Meus Serviços</h2>
-            <div class="servico">
-                <h3>Criação de Sites</h3>
-                <p>Desenvolvo sites personalizados e modernos para todos os tipos de negócios, seja para pequenas empresas ou grandes corporações.</p>
-            </div>
-            <div class="servico">
-                <h3>Desenvolvimento em PHP</h3>
-                <p>Crio sistemas dinâmicos e funcionais com PHP, como lojas virtuais, plataformas de gestão, blogs e outros.</p>
-            </div>
-            <div class="servico">
-                <h3>Design Responsivo</h3>
-                <p>Meus projetos são totalmente responsivos, garantindo uma navegação fluída em dispositivos móveis, tablets e desktops.</p>
-            </div>
-            <div class="servico">
-                <h3>Suporte Pós-Venda</h3>
-                <p>Ofereço suporte contínuo após o lançamento do site, garantindo que o seu projeto continue funcionando perfeitamente e seja atualizado conforme suas necessidades.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contato" class="contato">
-        <div class="container">
-            <h2>Entre em Contato</h2>
-            <p class="gostou">Gostou do meu trabalho? Vamos conversar! Entre em contato comigo por WhatsApp ou envie um e-mail para iniciar seu projeto!</p>
-            <div class="contato-info">
-                <a href="https://wa.me/5527998958496" target="_blank" class="whatsapp">WhatsApp: +55 27 99895-8496</a>
-                <a href="mailto:pedrohenriquedosreispereira@gmail.com" class="email">E-mail: pedrohenriquedosreispereira@gmail.com</a>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Pedro Henrique - Todos os direitos reservados</p>
-        </div>
-    </footer>
+    <script src="script.js"></script>
 </body>
 
 </html>
